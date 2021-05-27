@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../size_config.dart';
 
+// ignore: must_be_immutable
 class CustomAppBar extends PreferredSize {
   final double rating;
 
@@ -11,6 +12,14 @@ class CustomAppBar extends PreferredSize {
   @override
   // AppBar().preferredSize.height provide us the height that appy on our app bar
   Size get preferredSize => Size.fromHeight(AppBar().preferredSize.height);
+
+  ButtonStyle flatButton = TextButton.styleFrom(
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(60),
+    ),
+    primary: Colors.white,
+    padding: EdgeInsets.zero,
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -23,12 +32,8 @@ class CustomAppBar extends PreferredSize {
             SizedBox(
               height: getProportionateScreenWidth(40),
               width: getProportionateScreenWidth(40),
-              child: FlatButton(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(60),
-                ),
-                color: Colors.white,
-                padding: EdgeInsets.zero,
+              child: TextButton(
+                style: flatButton,
                 onPressed: () => Navigator.pop(context),
                 child: SvgPicture.asset(
                   "assets/icons/Back ICon.svg",
