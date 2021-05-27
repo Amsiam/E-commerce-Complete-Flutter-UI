@@ -12,7 +12,7 @@ class ProfilePic extends StatelessWidget {
       borderRadius: BorderRadius.circular(50),
       side: BorderSide(color: Colors.white),
     ),
-    primary: Color(0xFFF5F6F9),
+    backgroundColor: Color(0xFFF5F6F9),
   );
 
   @override

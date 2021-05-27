@@ -17,7 +17,7 @@ class CustomAppBar extends PreferredSize {
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(60),
     ),
-    primary: Colors.white,
+    backgroundColor: Colors.white,
     padding: EdgeInsets.zero,
   );
 

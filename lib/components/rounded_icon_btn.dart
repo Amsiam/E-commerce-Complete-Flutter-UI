@@ -17,7 +17,7 @@ class RoundedIconBtn extends StatelessWidget {
 
   ButtonStyle flatButton = TextButton.styleFrom(
     padding: EdgeInsets.zero,
-    primary: Colors.white,
+    backgroundColor: Colors.white,
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
   );
 
