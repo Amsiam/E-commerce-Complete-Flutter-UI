@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+// ignore: must_be_immutable
 class ProfilePic extends StatelessWidget {
-  const ProfilePic({
+  ProfilePic({
     Key key,
   }) : super(key: key);
+
+  ButtonStyle flatButton = TextButton.styleFrom(
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(50),
+      side: BorderSide(color: Colors.white),
+    ),
+    primary: Color(0xFFF5F6F9),
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +22,7 @@ class ProfilePic extends StatelessWidget {
       width: 115,
       child: Stack(
         fit: StackFit.expand,
-        overflow: Overflow.visible,
+        clipBehavior: Clip.none,
         children: [
           CircleAvatar(
             backgroundImage: AssetImage("assets/images/Profile Image.png"),
@@ -24,12 +33,8 @@ class ProfilePic extends StatelessWidget {
             child: SizedBox(
               height: 46,
               width: 46,
-              child: FlatButton(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(50),
-                  side: BorderSide(color: Colors.white),
-                ),
-                color: Color(0xFFF5F6F9),
+              child: TextButton(
+                style: flatButton,
                 onPressed: () {},
                 child: SvgPicture.asset("assets/icons/Camera Icon.svg"),
               ),

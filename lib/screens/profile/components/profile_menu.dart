@@ -3,25 +3,29 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../constants.dart';
 
+// ignore: must_be_immutable
 class ProfileMenu extends StatelessWidget {
-  const ProfileMenu({
+  final String text, icon;
+  final VoidCallback press;
+  ProfileMenu({
     Key key,
     @required this.text,
     @required this.icon,
     this.press,
   }) : super(key: key);
 
-  final String text, icon;
-  final VoidCallback press;
+  ButtonStyle textButton = TextButton.styleFrom(
+    padding: EdgeInsets.all(20),
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+    primary: Color(0xFFF5F6F9),
+  );
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-      child: FlatButton(
-        padding: EdgeInsets.all(20),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-        color: Color(0xFFF5F6F9),
+      child: TextButton(
+        style: textButton,
         onPressed: press,
         child: Row(
           children: [

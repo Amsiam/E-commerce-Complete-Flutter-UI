@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 import '../size_config.dart';
 
+// ignore: must_be_immutable
 class RoundedIconBtn extends StatelessWidget {
-  const RoundedIconBtn({
+  RoundedIconBtn({
     Key key,
     @required this.icon,
     @required this.press,
@@ -13,6 +14,12 @@ class RoundedIconBtn extends StatelessWidget {
   final IconData icon;
   final GestureTapCancelCallback press;
   final bool showShadow;
+
+  ButtonStyle flatButton = TextButton.styleFrom(
+    padding: EdgeInsets.zero,
+    primary: Colors.white,
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -30,10 +37,8 @@ class RoundedIconBtn extends StatelessWidget {
             ),
         ],
       ),
-      child: FlatButton(
-        padding: EdgeInsets.zero,
-        color: Colors.white,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+      child: TextButton(
+        style: flatButton,
         onPressed: press,
         child: Icon(icon),
       ),
